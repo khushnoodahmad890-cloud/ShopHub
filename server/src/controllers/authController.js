@@ -69,24 +69,43 @@ const login = async (req, res) => {
 
     // Create token
     const token = jwt.sign(
-      {
-        id: user.id,
-        email: user.email,
-      },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "7d",
-      }
-    );
+  {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  },
+  process.env.JWT_SECRET,
+  {
+    expiresIn: "7d",
+  }
+);
+res.json({
+  message: "Login successful",
+  token,
+  user: {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  },
+});
+
+  } catch (error) {
+    console.error(error.message);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
+// Get customers count
+const getUserCount = async (req, res) => {
+  try {
+    const count = await userModel.getUserCount();
 
     res.json({
-      message: "Login successful",
-      token,
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-      },
+      customers: count,
     });
 
   } catch (error) {
@@ -97,8 +116,8 @@ const login = async (req, res) => {
     });
   }
 };
-
 module.exports = {
   register,
   login,
+  getUserCount,
 };

@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const verifyToken = require("../middleware/authMiddleware");
+const { protect, admin } = require("../middleware/authMiddleware");
 
 const {
   createOrder,
@@ -12,23 +12,15 @@ const {
 } = require("../controllers/orderController");
 
 // Create Order
-router.post("/", verifyToken, createOrder);
+router.post("/", protect, createOrder);
 
 // Get Logged-in User Orders
-router.get("/my-orders", verifyToken, getMyOrders);
+router.get("/my-orders", protect, getMyOrders);
 
 // Admin: Get All Orders
-router.get(
-  "/admin",
-  verifyToken,
-  getAllOrders
-);
+router.get("/admin", protect, admin, getAllOrders);
 
 // Admin: Update Order Status
-router.put(
-  "/admin/:id",
-  verifyToken,
-  updateOrderStatus
-);
+router.put("/admin/:id", protect, admin, updateOrderStatus);
 
 module.exports = router;

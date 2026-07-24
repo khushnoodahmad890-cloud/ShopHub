@@ -3,10 +3,12 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+
 function Navbar() {
   const { cart } = useCart();
-const { user, logout } = useAuth();
-const { dark, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
+  const { dark, toggleTheme } = useTheme();
+
   const totalItems = cart.reduce(
     (total, item) => total + item.quantity,
     0
@@ -43,6 +45,13 @@ const { dark, toggleTheme } = useTheme();
             </NavLink>
           </li>
 
+          {/* Temporary Admin Access */}
+          <li>
+            <NavLink to="/admin">
+              Admin
+            </NavLink>
+          </li>
+
           <li>
             <NavLink to="/cart">
               Cart ({totalItems})
@@ -52,35 +61,43 @@ const { dark, toggleTheme } = useTheme();
         </ul>
 
 
-        {/* Login */}
-<div className="auth-buttons">
-  {user ? (
-    <button
-      onClick={logout}
-      className="btn logout-btn"
-    >
-      Logout
-    </button>
-  ) : (
-    <>
-      <Link to="/login" className="btn login-btn">
-        Login
-      </Link>
+        {/* Authentication */}
+        <div className="auth-buttons">
 
-      <Link to="/register" className="btn register-btn">
-        Register
-      </Link>
-   
-    </>
- 
- )}
- <button
-  className="theme-btn"
-  onClick={toggleTheme}
->
-  {dark ? <Sun size={20} /> : <Moon size={20} />}
-</button>
-</div>
+          {user ? (
+            <button
+              onClick={logout}
+              className="btn logout-btn"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link 
+                to="/login" 
+                className="btn login-btn"
+              >
+                Login
+              </Link>
+
+              <Link 
+                to="/register" 
+                className="btn register-btn"
+              >
+                Register
+              </Link>
+            </>
+          )}
+
+          <button
+            className="theme-btn"
+            onClick={toggleTheme}
+          >
+            {dark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
+        </div>
+
       </div>
     </nav>
   );

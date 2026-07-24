@@ -31,7 +31,7 @@ export async function getProduct(id: number) {
   return response.json();
 }
 
-// CREATE product (Protected)
+// CREATE product
 export async function createProduct(product: any) {
   const response = await fetch(API_URL, {
     method: "POST",
@@ -46,7 +46,25 @@ export async function createProduct(product: any) {
   return response.json();
 }
 
-// DELETE product (Protected)
+// UPDATE product
+export async function updateProduct(
+  id: number,
+  product: any
+) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(product),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to update product");
+  }
+
+  return response.json();
+}
+
+// DELETE product
 export async function deleteProduct(id: number) {
   const response = await fetch(`${API_URL}/${id}`, {
     method: "DELETE",

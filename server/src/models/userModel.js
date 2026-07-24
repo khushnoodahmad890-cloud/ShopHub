@@ -29,7 +29,19 @@ const createUser = async (
   return result.rows[0];
 };
 
+
+// Get total customers
+const getUserCount = async () => {
+  const result = await pool.query(
+    "SELECT COUNT(*) FROM users"
+  );
+
+  return Number(result.rows[0].count);
+};
+
+
 module.exports = {
   findUserByEmail,
   createUser,
+  getUserCount,
 };

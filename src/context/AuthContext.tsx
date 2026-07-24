@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface User {
   id: number;
   name: string;
   email: string;
+  role: "user" | "admin";
 }
 
 interface LoginData {
@@ -32,19 +33,14 @@ export function AuthProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<User | null>(null);
-
-  const [token, setToken] = useState<string | null>(
-    localStorage.getItem("token")
-  );
-
-  useEffect(() => {
+  const [user, setUser] = useState<User | null>(() => {
     const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
+  const [token, setToken] = useState<string | null>(() => {
+    return localStorage.getItem("token");
+  });
 
   async function register(data: RegisterData) {
     const res = await fetch("http://localhost:5000/api/auth/register", {
