@@ -1536,7 +1536,7 @@ grid-template-columns:1fr;
 /* ADMIN */
 
 .admin-page{
-  padding:60px 0;
+    padding: 50px 0 80px;
 }
 
 .admin-cards{
@@ -1548,7 +1548,7 @@ grid-template-columns:1fr;
   gap:25px;
 
   margin:40px 0;
-
+ margin-bottom:60px;
 }
 
 .admin-card{
@@ -1645,7 +1645,8 @@ grid-template-columns:1fr;
 /* Admin Buttons */
 
 button {
-  padding: 10px 16px;
+  width:auto;
+    padding:10px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -1703,8 +1704,9 @@ button + button {
 =========================== */
 
 .product-manager {
-  margin: 60px 0;
-  background: #1b2336;
+   background: var(--surface);
+    color: var(--heading);
+    border:1px solid var(--border);
   padding: 30px;
   border-radius: 15px;
 }
@@ -1766,8 +1768,8 @@ button + button {
   color: white;
 }
 
-.product-manager td {
-  color: #d5d5d5;
+.product-manager td{
+    color:var(--heading);
 }
 
 .product-manager td:last-child {
@@ -1998,4 +2000,84 @@ tr:hover {
 .product-manager.dark select {
   background: #111;
   color: white;
+}
+.product-form input,
+.product-form select,
+.product-form textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: white;
+  font-size: 15px;
+}
+
+.product-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.admin-orders select{
+    width:150px;
+    padding:10px;
+    border-radius:8px;
+    background:var(--surface);
+    color:var(--heading);
+    border:1px solid var(--border);
+}
+.edit-btn,
+.delete-btn{
+    width:90px;
+}
+.product-table img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.product-table tbody tr:hover,
+.admin-orders tbody tr:hover{
+    background:#182234;
+}
+.manager-toolbar{
+    margin-bottom:30px;
+}
+.product-form{
+    margin-bottom:40px;
+}
+@media(max-width:768px){
+
+.admin-cards{
+grid-template-columns:1fr;
+}
+
+.product-form{
+grid-template-columns:1fr;
+}
+
+.admin-orders{
+overflow-x:auto;
+}
+
+.product-table{
+overflow-x:auto;
+}
+
+}
+.product-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.product-table th,
+.product-table td{
+    padding:18px;
+    vertical-align:middle;
+}
+
+.product-table img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:12px;
 }
