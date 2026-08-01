@@ -15,7 +15,7 @@ function ProductDetails() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:5000/api/products/${id}`)
+    fetch(`https://shophub-production-5d04.up.railway.app/api/products/${id}`)
       .then((res) => {
 
         if (!res.ok) {

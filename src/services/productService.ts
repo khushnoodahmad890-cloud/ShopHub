@@ -1,5 +1,6 @@
-const API_URL = "http://localhost:5000/api/products";
-
+const API_URL =
+  "https://shophub-production-5d04.up.railway.app/api/products";
+  
 function getAuthHeaders() {
   const token = localStorage.getItem("token");
 

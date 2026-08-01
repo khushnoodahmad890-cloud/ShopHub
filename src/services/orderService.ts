@@ -1,10 +1,10 @@
-const API_URL = "http://localhost:5000/api/orders";
+const API_URL = "https://shophub-production-5d04.up.railway.app/api/orders";
 export async function updateOrderStatus(
   id: number,
   status: string
 ) {
   const response = await fetch(
-    `http://localhost:5000/api/orders/admin/${id}`,
+    `https://shophub-production-5d04.up.railway.app/api/orders/admin/${id}`,
     {
       method: "PUT",
       headers: {
@@ -67,7 +67,7 @@ export async function getMyOrders() {
 }
 export async function getAllOrders() {
   const response = await fetch(
-    "http://localhost:5000/api/orders/admin",
+    "https://shophub-production-5d04.up.railway.app/api/orders/admin",
     {
       headers: {
         Authorization:

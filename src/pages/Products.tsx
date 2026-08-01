@@ -11,7 +11,7 @@ function Products() {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://shophub-production-5d04.up.railway.app/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error(error));

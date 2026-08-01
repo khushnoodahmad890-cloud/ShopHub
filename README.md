@@ -206,7 +206,7 @@ npm run dev
 Backend runs at:
 
 ```
-http://localhost:5000
+https://shophub-production-5d04.up.railway.app
 ```
 
 ---
