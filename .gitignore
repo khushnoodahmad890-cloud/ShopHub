@@ -4,3 +4,4 @@ dist/
 .env
 server/.env
 ecommerce.sqlecommerce.sql
+ecommerce.sql
