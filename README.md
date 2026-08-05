@@ -1,140 +1,190 @@
-# 🛒 ShopHub — E-Commerce Store
+# 🛒 ShopHub — Full Stack E-Commerce Platform
 
-A full-stack e-commerce web application built with modern technologies. ShopHub provides a complete online shopping experience with product browsing, shopping cart functionality, user authentication, order management, and an admin dashboard.
+ShopHub is a modern full-stack e-commerce application built with **React, TypeScript, Node.js, Express, and PostgreSQL**.
 
-The goal of this project was to build a real-world e-commerce platform while practicing frontend development, backend API design, database management, authentication, and full-stack application architecture.
+The project has evolved from a basic online store into a complete production-style shopping platform featuring authentication, admin management, wishlist, reviews, order tracking, persistent carts, and a structured API architecture.
 
 ---
 
-## ✨ Features
+## 🚀 Live Demo
 
-### 🛍️ Product Management
+Frontend: https://shop-hub-sand-six.vercel.app/
 
-* Browse available products
-* Product listing and details
-* Product categories
-* Dynamic product data from backend API
-* Admin product management
+Backend API: VITE_API_URL=https://shophub-production-5d04.up.railway.app
 
-### 🛒 Shopping Cart
+---
+
+# ✨ Features
+
+## 🛍️ Customer Features
+
+### Product Browsing
+
+* Dynamic product loading from backend API
+* Product cards with:
+
+  * Product images
+  * Pricing
+  * Stock status
+  * Average rating display
+  * Review count
+* Category filtering
+* Price sorting
+* Responsive product layout
+
+---
+
+## 🛒 Advanced Shopping Cart
 
 * Add products to cart
-* Remove products from cart
-* Update cart items
-* Real-time cart count
-* Checkout-ready cart system
+* Remove individual items
+* Update quantities
+* Stock-aware quantity limits
+* Persistent cart using localStorage
+* Automatic cart total calculation
+* Cart survives page refresh
 
-### 🔐 Authentication
+---
 
-* User registration and login
-* Secure password hashing
-* JWT-based authentication
-* Protected user routes
+# ❤️ Wishlist System
 
-### 📦 Order System
+Users can:
+
+* Add products to wishlist
+* Remove products from wishlist
+* View saved products
+* Toggle wishlist directly from product cards
+* Access a dedicated wishlist page
+
+Backend support:
+
+* Wishlist database table
+* Protected wishlist API routes
+* User-specific wishlist items
+
+---
+
+# ⭐ Product Reviews & Ratings
+
+Customers can:
+
+* Submit product reviews
+* Rate products with stars
+* View existing reviews
+* See average ratings directly on products
+
+Features:
+
+* One review per user per product
+* Review ownership validation
+* Automatic rating aggregation
+* Review count displayed on products
+
+---
+
+# 🔐 Authentication System
+
+* User registration
+* Login/logout
+* JWT authentication
+* Secure password hashing with bcrypt
+* Protected routes
+* Role-based authorization
+
+User roles:
+
+* Customer
+* Admin
+
+---
+
+# 👨‍💼 Admin Dashboard
+
+Admin features:
+
+* Protected admin routes
+* Product management
+* Update products
+* Delete products
+* Manage inventory
+* View customer statistics
+* Order management
+
+Security improvements:
+
+* Admin-only customer count endpoint
+* Protected admin API requests
+* Hidden admin navigation for non-admin users
+
+---
+
+# 📦 Order Management
+
+Customers can:
 
 * Place orders
-* View user orders
-* Track order status
-* Admin order management
-* Update order status
+* View order history
+* Track order progress
 
-### 👨‍💼 Admin Dashboard
+Order system includes:
 
-* Manage products
-* View customer orders
-* Update order status
-* Control store data
+* Order creation
+* Order items tracking
+* Status timeline UI
 
-### 🎨 Frontend Experience
+Order statuses:
 
-* Responsive design
-* Modern e-commerce UI
-* Dark mode support
-* Type-safe React development
-* Reusable components
+* Pending
+* Processing
+* Shipped
+* Delivered
 
 ---
 
-## 🛠️ Tech Stack
+# 🔔 User Experience Improvements
 
-## Frontend
+Added custom toast notification system:
 
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-* React Router
-* Axios
+Replaced browser alerts with:
 
-## Backend
-
-* Node.js
-* Express.js
-* PostgreSQL
-* JWT Authentication
-* bcrypt
-* REST API
+* Success notifications
+* Error messages
+* Authentication feedback
+* Cart actions feedback
 
 ---
 
-## 📂 Project Structure
+# 🏗️ Backend Improvements
 
-```bash id="k7t8qv"
-ShopHub/
-│
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── context/
-│   │   ├── services/
-│   │   ├── types/
-│   │   └── main.tsx
-│   │
-│   └── package.json
-│
-├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── database/
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
+## New Database Tables
+
+Added:
+
+### Wishlist
+
+```sql
+wishlist_items
 ```
 
----
+Stores user saved products.
 
-## 🗄️ Database
+### Reviews
 
-ShopHub uses PostgreSQL for storing application data.
+```sql
+reviews
+```
 
-Main tables:
+Stores:
 
-### Users
-
-* User accounts
-* Authentication information
-* User roles (Customer/Admin)
-
-### Products
-
-* Product information
-* Price
-* Categories
-* Stock details
-
-### Orders
-
-* Customer orders
-* Order status
-* Purchase details
+* User reviews
+* Ratings
+* Product feedback
 
 ---
 
-## 🔌 API Features
+## API Architecture
+
+Created centralized REST API structure.
 
 ### Authentication
 
@@ -146,91 +196,224 @@ POST /api/auth/login
 ### Products
 
 ```
-GET    /api/products
-POST   /api/products
-PUT    /api/products/:id
+GET /api/products
+POST /api/products
+PUT /api/products/:id
 DELETE /api/products/:id
+```
+
+### Wishlist
+
+```
+GET /api/wishlist
+POST /api/wishlist
+DELETE /api/wishlist/:id
+```
+
+### Reviews
+
+```
+GET /api/products/:id/reviews
+POST /api/products/:id/reviews
+DELETE /api/products/:id/reviews
 ```
 
 ### Orders
 
 ```
 POST /api/orders
-GET  /api/orders/my-orders
-GET  /api/orders/admin
-PUT  /api/orders/admin/:id
+GET /api/orders
 ```
 
 ---
 
-## 🚀 Installation & Setup
+# 🛠️ Code Quality Improvements
 
-### Clone Repository
+## Frontend Architecture
 
-```bash id="1a3v8y"
-git clone <repository-url>
+Implemented:
 
-cd ShopHub
+* Centralized API client
+* Reusable services
+* Strong TypeScript types
+* Cleaner component structure
+
+Created services:
+
+```
+services/
+├── api.ts
+├── authService.ts
+├── productService.ts
+├── orderService.ts
+├── wishlistService.ts
+└── reviewService.ts
 ```
 
 ---
 
-## Frontend Setup
+## TypeScript Improvements
 
-```bash id="q6bq8m"
-cd client
+Before:
 
-npm install
+* Loose `any` types
+* Build skipped type checking
 
-npm run dev
-```
+Now:
 
-Frontend runs at:
+* Proper interfaces
+* Type-safe API responses
+* Full TypeScript validation
+* Production build checks
 
-```
-http://localhost:5173
-```
-
----
-
-## Backend Setup
-
-```bash id="f3l2wq"
-cd server
-
-npm install
-
-npm run dev
-```
-
-Backend runs at:
+Build command:
 
 ```
-https://shophub-production-5d04.up.railway.app
+tsc -b && vite build
 ```
 
 ---
 
-## 🔑 Environment Variables
+# 🐛 Major Bugs Fixed
 
-Create a `.env` file inside the server folder:
+## Admin Product Updates
 
-```env id="j8n2vz"
-PORT=5000
-
-DB_USER=postgres
-DB_HOST=localhost
-DB_NAME=ecommerce
-DB_PASSWORD=your_password
-DB_PORT=5432
-
-JWT_SECRET=your_secret_key
-```
+Fixed broken product editing caused by missing backend update controller.
 
 ---
 
-## 📸 Screenshots
+## Order Data Bug
 
+Fixed incorrect product ID mapping during checkout.
+
+Previously:
+
+* Orders saved without correct product references
+
+Now:
+
+* Order history correctly tracks purchased products
+
+---
+
+## Order Status Bug
+
+Fixed case mismatch:
+
+Before:
+
+```
+pending
+```
+
+Backend expected:
+
+```
+Pending
+```
+
+Now:
+
+* Status updates work correctly
+
+---
+
+## Security Fix
+
+Protected:
+
+```
+/api/auth/users/count
+```
+
+Previously:
+
+* Public endpoint
+
+Now:
+
+* Admin authentication required
+
+---
+
+## CSS Improvements
+
+Fixed missing CSS variables:
+
+Added:
+
+* --white
+* --radius
+* --transition
+
+Improved:
+
+* Border radius
+* Animations
+* Component consistency
+
+---
+
+# 💻 Tech Stack
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* CSS
+* React Router
+* Axios
+* Context API
+
+## Backend
+
+* Node.js
+* Express.js
+* PostgreSQL
+* JWT
+* bcrypt
+* REST API
+
+## Database
+
+* PostgreSQL
+* Neon PostgreSQL
+
+## Deployment
+
+Frontend:
+
+* Vercel
+
+Backend:
+
+* Railway
+
+---
+
+# 📂 Project Structure
+
+```
+ShopHub
+
+├── client
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── context
+│   │   ├── services
+│   │   └── types
+│   └── .env
+│
+└── server
+    ├── controllers
+    ├── routes
+    ├── middleware
+    ├── models
+    └── database
+```
+📸 Screenshots
 <img width="1440" height="966" alt="screencapture-localhost-5173-2026-08-01-03_12_55" src="https://github.com/user-attachments/assets/574112bb-1778-4e05-8732-61c37b55c4dc" />
 
 <img width="1440" height="773" alt="screencapture-localhost-5173-register-2026-08-01-03_13_37" src="https://github.com/user-attachments/assets/0afb88d3-c973-40ba-bcf5-00efa4056d6e" />
@@ -240,7 +423,11 @@ JWT_SECRET=your_secret_key
 <img width="1440" height="1743" alt="image" src="https://github.com/user-attachments/assets/9714eada-4f1a-4bc7-a00c-39f8aaf9de36" />
 
 
-<img width="1440" height="773" alt="screencapture-localhost-5173-products-1-2026-08-01-03_15_37" src="https://github.com/user-attachments/assets/5379f5de-06a7-4640-bd0b-d3b9702be24b" />
+<img width="1366" height="1161" alt="image" src="https://github.com/user-attachments/assets/78fa503d-09ae-464e-aeff-2634876f9a07" />
+
+
+<img width="1366" height="847" alt="image" src="https://github.com/user-attachments/assets/1b2070e8-5d46-432f-a090-20f8e719d71e" />
+
 
 <img width="1440" height="965" alt="screencapture-localhost-5173-orders-2026-08-01-03_15_22" src="https://github.com/user-attachments/assets/35eb4ad6-8e66-4f02-a619-7241b1ef4a80" />
 
@@ -257,41 +444,31 @@ JWT_SECRET=your_secret_key
 
 <img width="1440" height="997" alt="screencapture-localhost-5173-payment-2026-08-01-03_28_30" src="https://github.com/user-attachments/assets/6dff8380-26d1-4ac1-a07d-3db3daa0fe22" />
 
-
-## 📚 Learning Outcomes
-
-Through this project, I practiced:
-
-* Building a complete full-stack application
-* Creating REST APIs with Express
-* Working with PostgreSQL databases
-* Implementing authentication and authorization
-* Building reusable React components
-* Managing application state
-* Creating admin functionality
-* Connecting frontend and backend systems
-
 ---
 
-## 🔮 Future Improvements
+# 🔮 Future Improvements
 
-* Online payment integration
-* Product reviews and ratings
-* Wishlist functionality
-* Image upload system
-* Advanced product filtering
-* Cloud deployment
+* Payment gateway integration
+* Product image upload
+* Advanced analytics dashboard
+* Discount coupons
 * Email notifications
+* Inventory management system
+* Multi-vendor marketplace support
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Khushnood Ahmad**
 
-Full-Stack Developer
+Full Stack Developer
+
+GitHub:
+https://github.com/khushnoodahmad890-cloud
 
 ---
 
-⭐ If you like this project, consider giving it a star!
+⭐ Built as a real-world full-stack e-commerce application.
+
 
