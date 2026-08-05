@@ -3,7 +3,7 @@
 // hardcoded in every service file, and centralizes auth-header injection
 // and error handling.
 
-export const API_URL = "http://localhost:5000";
+export const API_URL = "https://shophub-production-5d04.up.railway.app";
 
 export class ApiError extends Error {
   status: number;
