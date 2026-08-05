@@ -378,6 +378,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
+<<<<<<< HEAD
 -- Name: wishlist_items; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -410,6 +411,8 @@ CREATE INDEX idx_reviews_product ON public.reviews(product_id);
 
 
 --
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 -- PostgreSQL database dump complete
 --
 

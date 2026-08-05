@@ -20,12 +20,20 @@
   "devDependencies": {
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.15",
+<<<<<<< HEAD
     "typescript": "^5.6.3"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "typecheck": "tsc --noEmit",
+=======
+    "typescript": "4.4.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     "preview": "vite preview"
   },
   "browserslist": [

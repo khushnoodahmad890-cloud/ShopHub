@@ -11,7 +11,10 @@ import Register from "./pages/Register";
 import MyOrders from "./pages/MyOrders";
 import Payment from "./pages/Payment";
 import PaymentSuccess from "./pages/PaymentSuccess";
+<<<<<<< HEAD
 import Wishlist from "./pages/Wishlist";
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 import ProtectedRoute from "./components/ProtectedRoute";
 export default function App() {
   return (
@@ -34,6 +37,7 @@ export default function App() {
 />
 
 <Route
+<<<<<<< HEAD
   path="/wishlist"
   element={
     <ProtectedRoute>
@@ -43,6 +47,8 @@ export default function App() {
 />
 
 <Route
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   path="/payment"
   element={
     <ProtectedRoute>

@@ -39,6 +39,7 @@ function Navbar() {
             </NavLink>
           </li>
 
+<<<<<<< HEAD
           {user && (
             <li>
               <NavLink to="/orders">
@@ -62,6 +63,20 @@ function Navbar() {
               </NavLink>
             </li>
           )}
+=======
+          <li>
+            <NavLink to="/orders">
+              My Orders
+            </NavLink>
+          </li>
+
+          {/* Temporary Admin Access */}
+          <li>
+            <NavLink to="/admin">
+              Admin
+            </NavLink>
+          </li>
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 
           <li>
             <NavLink to="/cart">
@@ -114,4 +129,8 @@ function Navbar() {
   );
 }
 
+<<<<<<< HEAD
 export default Navbar;
+=======
+export default Navbar;
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432

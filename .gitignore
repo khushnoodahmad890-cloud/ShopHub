@@ -3,4 +3,5 @@ server/node_modules/
 dist/
 .env
 server/.env
-ecommerce.sqlecommerce.sql
+ecommerce.sql
+server/migrations/001_wishlist_and_reviews.sql

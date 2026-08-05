@@ -29,7 +29,10 @@
 
   --bg: #f5f7fb;
   --surface: #ffffff;
+<<<<<<< HEAD
   --white: #ffffff;
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 
   /* Text */
 
@@ -40,11 +43,14 @@
 
   --border: #dbe3ef;
 
+<<<<<<< HEAD
   /* Shape / Motion */
 
   --radius: 16px;
   --transition: 0.25s ease;
 
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   /* Shadow */
 
   --shadow: 0 12px 30px rgba(0,0,0,.08);
@@ -55,7 +61,10 @@
   --bg: #0f172a;
 
   --surface: #1e293b;
+<<<<<<< HEAD
   --white: #1e293b;
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 
   --heading: #f8fafc;
 
@@ -300,8 +309,11 @@ section {
 
 .product-card {
 
+<<<<<<< HEAD
   position: relative;
 
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   background: var(--white);
 
   border: 1px solid var(--border);
@@ -1802,6 +1814,7 @@ button + button {
   background: #e74c3c;
   color: white;
 }
+<<<<<<< HEAD
 /* ===========================
    PRODUCT FILTERS
 =========================== */
@@ -1811,11 +1824,20 @@ button + button {
   align-items: flex-end;
   gap: 18px;
   margin: 30px 0;
+=======
+/* Product Filters */
+
+.product-filters {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   flex-wrap: wrap;
 }
 
 .product-filters input,
 .product-filters select {
+<<<<<<< HEAD
   height: 56px;
   padding: 0 18px;
   border: 1px solid #374151;
@@ -1844,10 +1866,30 @@ button + button {
 
 .product-filters input::placeholder {
   color: #9ca3af;
+=======
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #101827;;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.product-filters input {
+  flex: 1;
+  min-width: 250px;
+}
+
+.product-filters select {
+  min-width: 180px;
+  cursor: pointer;
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 }
 
 .product-filters input:focus,
 .product-filters select:focus {
+<<<<<<< HEAD
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
@@ -1865,6 +1907,10 @@ button + button {
 }
 
 
+=======
+  border-color: #6366f1;
+}
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 /* Responsive Tables */
 
 .table-wrapper {
@@ -2118,6 +2164,7 @@ overflow-x:auto;
     height:70px;
     object-fit:cover;
     border-radius:12px;
+<<<<<<< HEAD
 }
 /* ==========================================
    TOASTS
@@ -2579,3 +2626,6 @@ overflow-x:auto;
 .cart-item-remove:hover {
   background: #fecaca;
 }
+=======
+}
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432

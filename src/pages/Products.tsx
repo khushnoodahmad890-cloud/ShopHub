@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { useCart } from "../context/CartContext";
@@ -132,8 +133,88 @@ function Products() {
           </div>
         )}
       </div>
+=======
+import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
+import { useCart } from "../context/CartContext";
+import type { Product } from "../types/product";
+
+function Products() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const { addToCart } = useCart();
+
+
+  useEffect(() => {
+    fetch("https://shophub-production-5d04.up.railway.app/api/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+
+
+  const filteredProducts = products.filter((product) =>
+    product.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
+
+
+
+  return (
+    <section className="products">
+
+      <div className="container">
+
+        <div className="products-header">
+
+          <h1>
+            Explore Products
+          </h1>
+
+          <p>
+            Find the best products at the best prices.
+          </p>
+
+        </div>
+
+
+
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+
+
+
+        <div className="product-grid">
+
+          {filteredProducts.map((product) => (
+
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={() => addToCart(product)}
+            />
+
+          ))}
+
+        </div>
+
+      </div>
+
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     </section>
   );
 }
 
+<<<<<<< HEAD
 export default Products;
+=======
+export default Products;
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432

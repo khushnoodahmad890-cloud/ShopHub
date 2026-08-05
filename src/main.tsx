@@ -8,13 +8,17 @@ import "./styles.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+<<<<<<< HEAD
 import { WishlistProvider } from "./context/WishlistContext";
 import { ToastProvider } from "./context/ToastContext";
 import ToastContainer from "./components/ToastContainer";
+=======
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
+<<<<<<< HEAD
       <ToastProvider>
         <AuthProvider>
           <CartProvider>
@@ -27,6 +31,15 @@ createRoot(document.getElementById("root")!).render(
           </CartProvider>
         </AuthProvider>
       </ToastProvider>
+=======
+      <AuthProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartProvider>
+      </AuthProvider>
+>>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     </ThemeProvider>
   </StrictMode>
 );
