@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { CreditCard, ShieldCheck, Lock } from "lucide-react";
 import { useCart } from "../context/CartContext";
-<<<<<<< HEAD
 import { useToast } from "../context/ToastContext";
 import { createOrder } from "../services/orderService";
 import { ApiError } from "../services/api";
@@ -11,23 +10,13 @@ export default function Payment() {
   const { cart, clearCart } = useCart();
   const { showToast } = useToast();
   const navigate = useNavigate();
-=======
-import { createOrder } from "../services/orderService";
-import { useNavigate } from "react-router-dom";
-export default function Payment() {
-const { cart, clearCart } = useCart();
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardName, setCardName] = useState("");
-<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
 
-=======
-const [loading, setLoading] = useState(false);
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   const subtotal = cart.reduce(
     (total, item) => total + Number(item.price) * item.quantity,
     0
@@ -36,7 +25,6 @@ const [loading, setLoading] = useState(false);
   const shipping = 0;
   const tax = subtotal * 0.1;
   const total = subtotal + shipping + tax;
-<<<<<<< HEAD
 
   async function handlePayment() {
     if (!cardNumber || !expiry || !cvv || !cardName) {
@@ -78,39 +66,6 @@ const [loading, setLoading] = useState(false);
     }
   }
 
-=======
-const navigate = useNavigate();
-
-  async function handlePayment() {
-  if (!cardNumber || !expiry || !cvv || !cardName) {
-    alert("Please fill in all payment details.");
-    return;
-  }
-
-  setLoading(true);
-
-  try {
-    await createOrder(
-      total,
-      cart.map((item) => ({
-        product_id: item.id,
-        quantity: item.quantity,
-        price: Number(item.price),
-      }))
-    );
-
-    clearCart();
-
-   navigate("/payment-success");
-  } catch (error) {
-    alert("Payment Failed");
-    console.error(error);
-  } finally {
-    setLoading(false);
-  }
-}
-
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   return (
     <section className="payment-page">
       <h1 className="page-title">Checkout</h1>
@@ -169,7 +124,6 @@ const navigate = useNavigate();
             onChange={(e) => setCardName(e.target.value)}
           />
 
-<<<<<<< HEAD
           <button
             className="btn pay-btn"
             onClick={handlePayment}
@@ -179,16 +133,6 @@ const navigate = useNavigate();
             {loading ? "Processing..." : "Pay Securely"}
           </button>
 
-=======
-        <button
-  className="btn pay-btn"
-  onClick={handlePayment}
-  disabled={loading}
->
-  <Lock size={18} />
-  {loading ? "Processing..." : "Pay Securely"}
-</button>
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
           <div className="payment-security">
             <div>
               <ShieldCheck size={18} />
@@ -226,12 +170,7 @@ const navigate = useNavigate();
               </div>
 
               <span>
-<<<<<<< HEAD
                 ${(Number(item.price) * item.quantity).toFixed(2)}
-=======
-                $
-                {(Number(item.price) * item.quantity).toFixed(2)}
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
               </span>
             </div>
           ))}
@@ -265,8 +204,4 @@ const navigate = useNavigate();
       </div>
     </section>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432

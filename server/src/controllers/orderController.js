@@ -27,15 +27,11 @@ const updateOrderStatus = async (req, res) => {
       "Cancelled",
     ];
 
-<<<<<<< HEAD
     const normalizedStatus = allowedStatuses.find(
       (s) => s.toLowerCase() === String(status).toLowerCase()
     );
 
     if (!normalizedStatus) {
-=======
-    if (!allowedStatuses.includes(status)) {
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
       return res.status(400).json({
         message: "Invalid order status",
       });
@@ -43,11 +39,7 @@ const updateOrderStatus = async (req, res) => {
 
     const order = await orderModel.updateOrderStatus(
       id,
-<<<<<<< HEAD
       normalizedStatus
-=======
-      status
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     );
 
     res.json(order);

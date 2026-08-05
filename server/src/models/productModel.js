@@ -3,7 +3,6 @@ const pool = require("../config/db");
 // Get all products
 const getAllProducts = async () => {
   const result = await pool.query(
-<<<<<<< HEAD
     `
     SELECT
       p.*,
@@ -14,9 +13,6 @@ const getAllProducts = async () => {
     GROUP BY p.id
     ORDER BY p.id ASC
     `
-=======
-    "SELECT * FROM products ORDER BY id ASC"
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   );
 
   return result.rows;
@@ -26,7 +22,6 @@ const getAllProducts = async () => {
 // Get single product by ID
 const getProductById = async (id) => {
   const result = await pool.query(
-<<<<<<< HEAD
     `
     SELECT
       p.*,
@@ -37,9 +32,6 @@ const getProductById = async (id) => {
     WHERE p.id = $1
     GROUP BY p.id
     `,
-=======
-    "SELECT * FROM products WHERE id = $1",
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     [id]
   );
 
@@ -77,7 +69,6 @@ const createProduct = async (
 };
 
 
-<<<<<<< HEAD
 // Update product
 const updateProduct = async (
   id,
@@ -108,8 +99,6 @@ const updateProduct = async (
 };
 
 
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 // Delete product
 const deleteProduct = async (id) => {
   const result = await pool.query(
@@ -125,9 +114,6 @@ module.exports = {
   getAllProducts,
   getProductById,
   createProduct,
-<<<<<<< HEAD
   updateProduct,
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   deleteProduct,
 };

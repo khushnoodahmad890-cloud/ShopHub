@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-<<<<<<< HEAD
 import { useToast } from "../context/ToastContext";
 import { ApiError } from "../services/api";
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 import {
   getProducts,
   createProduct,
@@ -27,10 +24,7 @@ const [categoryFilter, setCategoryFilter] = useState("All");
     stock: 0,
   });
 const { dark } = useTheme();
-<<<<<<< HEAD
 const { showToast } = useToast();
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   async function loadProducts() {
     try {
       const data = await getProducts();
@@ -60,15 +54,10 @@ const filteredProducts = products.filter((product) => {
   try {
     if (editingId) {
       await updateProduct(editingId, form);
-<<<<<<< HEAD
       showToast(`"${form.title}" updated`, "success");
     } else {
       await createProduct(form);
       showToast(`"${form.title}" added to catalog`, "success");
-=======
-    } else {
-      await createProduct(form);
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     }
 
     setForm({
@@ -84,13 +73,10 @@ const filteredProducts = products.filter((product) => {
 
     loadProducts();
   } catch (error) {
-<<<<<<< HEAD
     const message =
       error instanceof ApiError ? error.message : "Failed to save product";
 
     showToast(message, "error");
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     console.error(error);
   }
 }
@@ -99,7 +85,6 @@ async function handleDelete(id: number) {
 
   try {
     await deleteProduct(id);
-<<<<<<< HEAD
     showToast("Product deleted", "success");
     loadProducts();
   } catch (error) {
@@ -107,10 +92,6 @@ async function handleDelete(id: number) {
       error instanceof ApiError ? error.message : "Failed to delete product";
 
     showToast(message, "error");
-=======
-    loadProducts();
-  } catch (error) {
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
     console.error(error);
   }
 }

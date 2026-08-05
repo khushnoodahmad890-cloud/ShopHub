@@ -16,9 +16,5 @@
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
-<<<<<<< HEAD
   "include": ["src"]
-=======
-  "include": ["src", "src/services/productService.ts"]
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 }

@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import {
   createContext,
   useContext,
   useEffect,
   useState,
 } from "react";
-=======
-import { createContext, useContext, useState } from "react";
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 import type { Product } from "../types/product";
 
 export interface CartItem {
@@ -16,19 +12,13 @@ export interface CartItem {
   price: string;
   image: string;
   quantity: number;
-<<<<<<< HEAD
   stock: number;
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 }
 
 interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product) => void;
-<<<<<<< HEAD
   removeFromCart: (id: number) => void;
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
   increaseQuantity: (id: number) => void;
   decreaseQuantity: (id: number) => void;
   clearCart: () => void;
@@ -36,7 +26,6 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | null>(null);
 
-<<<<<<< HEAD
 const STORAGE_KEY = "cart";
 
 function loadInitialCart(): CartItem[] {
@@ -69,24 +58,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         return prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-=======
-export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  const addToCart = (product: Product) => {
-    setCart((prev) => {
-      const existingItem = prev.find(
-        (item) => item.id === product.id
-      );
-
-      if (existingItem) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? {
-                ...item,
-                quantity: item.quantity + 1,
-              }
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
             : item
         );
       }
@@ -99,16 +70,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           price: product.price,
           image: product.image,
           quantity: 1,
-<<<<<<< HEAD
           stock: product.stock,
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
         },
       ];
     });
   };
 
-<<<<<<< HEAD
   const removeFromCart = (id: number) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
@@ -118,16 +85,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       prev.map((item) =>
         item.id === id && item.quantity < item.stock
           ? { ...item, quantity: item.quantity + 1 }
-=======
-  const increaseQuantity = (id: number) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quantity: item.quantity + 1,
-            }
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
           : item
       )
     );
@@ -138,14 +95,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       prev
         .map((item) =>
           item.id === id
-<<<<<<< HEAD
             ? { ...item, quantity: item.quantity - 1 }
-=======
-            ? {
-                ...item,
-                quantity: item.quantity - 1,
-              }
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
             : item
         )
         .filter((item) => item.quantity > 0)
@@ -161,10 +111,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       value={{
         cart,
         addToCart,
-<<<<<<< HEAD
         removeFromCart,
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
         increaseQuantity,
         decreaseQuantity,
         clearCart,
@@ -183,8 +130,4 @@ export function useCart() {
   }
 
   return context;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432

@@ -12,22 +12,18 @@ const {
   removeProduct,
 } = require("../controllers/productController");
 
-<<<<<<< HEAD
 const {
   getReviews,
   addReview,
   removeReview,
 } = require("../controllers/reviewController");
 
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 // GET all products
 router.get("/", getProducts);
 
 // GET single product
 router.get("/:id", getProduct);
 
-<<<<<<< HEAD
 // GET reviews for a product
 router.get("/:id/reviews", getReviews);
 
@@ -37,8 +33,6 @@ router.post("/:id/reviews", protect, addReview);
 // DELETE your own review
 router.delete("/:id/reviews", protect, removeReview);
 
-=======
->>>>>>> 23bc17ac3b69e1ea1307de726046853da4148432
 // CREATE product (Admin only)
 router.post("/", protect, admin, addProduct);
 
